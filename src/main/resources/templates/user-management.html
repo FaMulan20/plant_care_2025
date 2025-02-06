@@ -3,23 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>User Management</title>
+    <link rel="stylesheet" href="/css/navbar.css">
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
 	<!-- Navbar -->
-    <div class="navbar">
-        <h1>Plant Care Management</h1>
-        <ul class="menu">
-            <li><a href="/users">Users</a></li>
-            <li><a href="/departments">Departments</a></li>
-        </ul>
-    </div>
-    
+    <div th:replace="fragments/top-menu.html :: top-menu"></div>
     <h1>User Management</h1>
 
     <!-- Form for Adding or Editing a User -->
     <form th:action="@{/users/save}" th:object="${user}" method="post" autocomplete="off">
+    <div>
         <input type="hidden" th:field="*{id}" />
         <div>
             <label for="username">Username:</label>
@@ -50,6 +45,7 @@
         <div>
             <button type="submit">Save</button>
         </div>
+     </div>
     </form>
 
     <!-- Table to Display Users -->
